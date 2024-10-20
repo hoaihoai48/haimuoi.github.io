@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" type="text/javascript"></script>
+    <title>Chúc mừng Ngày Phụ nữ Việt Nam 20-10</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 36px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #ffffff;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="hello"></h1>
+    <p>Chúc Mừng Ngày Phụ Nữ Việt Nam 20-10</p>
+    <button id="page-flower">Nhấn vào đây</button>
+
+    <script>
+        const helloText = "HELLO";
+        const helloContainer = document.getElementById( "hello" );
+
+        helloText.split( '' ).forEach( ( letter ) => {
+            const span = document.createElement( "span" );
+            span.classList.add( "letter" );
+            span.textContent = letter;
+            helloContainer.appendChild( span );
+        } );
+
+        function lightUp() {
+            const letters = document.querySelectorAll( ".letter" );
+            letters.forEach( ( letter, index ) => {
+                setTimeout( () => {
+                    letter.style.opacity = 1;
+                }, index * 500 );
+            } );
+        }
+
+        window.onload = lightUp;
+
+        document.getElementById( "page-flower" ).onclick = function () {
+            window.location.href = "flowers.html";
+        };
+    </script>
+
+</body>
+
+</html>
